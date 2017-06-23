@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module generateSubkeys(
-	input [31:0] key,
+	input [63:0] key,
 	output [47:0] sub_key1,
 	output [47:0] sub_key2,
 	output [47:0] sub_key3,
@@ -35,10 +35,11 @@ module generateSubkeys(
 	output [47:0] sub_key13,
 	output [47:0] sub_key14,
 	output [47:0] sub_key15,
-	output [47:0] sub_key16
+	output [47:0] sub_key16,
+	input clk
     );
 	 
-	reg [31:0] permuted_key;
+	reg [0:55] permuted_key;
 	reg [7:0] perm1 [55:0];
 	reg [7:0] perm2 [47:0];
 	initial begin
@@ -47,59 +48,72 @@ module generateSubkeys(
 	end
 	
 	
-	//perm1
 	integer i;
-	initial begin
-		for (i = 0; i < 48; i = i + 1) begin
-			permuted_key[i] = key[perm1[i] - 1];
+	always @(*) begin
+		for (i = 0; i < 56; i = i + 1) begin
+			permuted_key[i] <= key[perm1[i] - 1'h1];
 		end
 	end
 	
 	reg [27:0] C[16:0], D[16:0];
-	reg [47:0] K[0:15], key_tmp;
-	reg [47:0] subkey;
+	reg [55:0] K[0:15];
+	reg [47:0] Keys [0:15];
+	reg [0:47] key_tmp;
+	reg [55:0] subkey;
 	
 	//rotations
 	integer j, k;
-	always @(key) begin
-	
-		C[0] <= key[27:0];
-		D[0] <= key[55:28];
-		
-		for (j = 1; j < 16; j = j+1)begin
-			C[j] <= {C[j-1][14:0], C[j-1][15]};
-			D[j] <= {D[j-1][14:0], D[j-1][15]};
+	reg flag = 0;
+	always @(*) begin
+		C[0] = permuted_key[0:27];
+		D[0] = permuted_key[28:55];
+
+		for (j = 1; j <= 16; j = j+1)begin
+			C[j] = {C[j-1][26:0], C[j-1][27]};
+			D[j] = {D[j-1][26:0], D[j-1][27]};
+
 			if ((j != 1) && (j != 2) && (j != 9) && (j != 16)) begin
-            C[j] <= {C[j-1][14:0], C[j-1][15]};
-				D[j] <= {D[j-1][14:0], D[j-1][15]};
+            C[j] = {C[j][26:0], C[j][27]};
+				D[j] = {D[j][26:0], D[j][27]};
 			end
-			subkey <= {C[j], D[j]};
-			
-			for (k = 0; k < 48; k = k + 1) begin
-				key_tmp[k] <= subkey[perm2[k] - 1];
+			subkey = {C[j], D[j]};
+			K[j - 1] = subkey;
+			if (j == 16) begin
+				flag <= 1;
 			end
-			
-			K[j - 1] <= key_tmp;
-			
 		end
-		
 	end
 	
-	 assign sub_key1 = K[1];
-    assign sub_key2 = K[2];
-    assign sub_key3 = K[3];
-    assign sub_key4 = K[4];
-    assign sub_key5 = K[5];
-    assign sub_key6 = K[6];
-    assign sub_key7 = K[7];
-    assign sub_key8 = K[8];
-    assign sub_key9 = K[9];
-    assign sub_key10 = K[10];
-    assign sub_key11 = K[11];
-    assign sub_key12 = K[12];
-    assign sub_key13 = K[13];
-    assign sub_key14 = K[14];
-    assign sub_key15 = K[15];
-    assign sub_key16 = K[16];
+	reg [10:0] counter = 0;
+	reg [0:55] tmp;
+	always @(*) begin
+		if (flag)begin
+			tmp[0:55] = K[counter][55:0];
+			for (k = 0; k < 48; k = k + 1) begin
+				key_tmp[k] = tmp[perm2[k] - 1'h1];
+			end
+			Keys[counter] = key_tmp;
+			$display("%b", Keys[counter]);
+			counter <= counter + 1;
+			if ( counter == 16 ) flag <= 0;
+		end
+	end
+	
+	 assign sub_key1 = Keys[0];
+    assign sub_key2 = Keys[1];
+    assign sub_key3 = Keys[2];
+    assign sub_key4 = Keys[3];
+    assign sub_key5 = Keys[4];
+    assign sub_key6 = Keys[5];
+    assign sub_key7 = Keys[6];
+    assign sub_key8 = Keys[7];
+    assign sub_key9 = Keys[8];
+    assign sub_key10 = Keys[9];
+    assign sub_key11 = Keys[10];
+    assign sub_key12 = Keys[11];
+    assign sub_key13 = Keys[12];
+    assign sub_key14 = Keys[13];
+    assign sub_key15 = Keys[14];
+    assign sub_key16 = Keys[15];
 	
 endmodule

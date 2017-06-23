@@ -1,0 +1,26 @@
+
+
+
+// Instantiate the module
+generateSubkeys instance_name (
+    .key(key), 
+    .sub_key1(sub_key1), 
+    .sub_key2(sub_key2), 
+    .sub_key3(sub_key3), 
+    .sub_key4(sub_key4), 
+    .sub_key5(sub_key5), 
+    .sub_key6(sub_key6), 
+    .sub_key7(sub_key7), 
+    .sub_key8(sub_key8), 
+    .sub_key9(sub_key9), 
+    .sub_key10(sub_key10), 
+    .sub_key11(sub_key11), 
+    .sub_key12(sub_key12), 
+    .sub_key13(sub_key13), 
+    .sub_key14(sub_key14), 
+    .sub_key15(sub_key15), 
+    .sub_key16(sub_key16), 
+    .clk(clk)
+    );
+
+

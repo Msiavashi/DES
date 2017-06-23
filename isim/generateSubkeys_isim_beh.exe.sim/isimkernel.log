@@ -1,0 +1,28 @@
+Command line:
+   generateSubkeys_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  61454
+
+Sun May 21 13:09:23 2017
+
+
+ Elaboration Time: 0.21875 sec
+
+ Current Memory Usage: 1020.75 Meg
+
+ Total Signals          : 30
+ Total Nets             : 845
+ Total Signal Drivers   : 21
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 25
+ Total Traceable Variables  : 29
+ Total Scalar Nets and Variables : 3717
+
+ Total Simulation Time: 0.28125 sec
+
+ Current Memory Usage: 1020.75 Meg
+
+Sun May 21 13:09:35 2017
+

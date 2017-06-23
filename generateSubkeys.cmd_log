@@ -1,0 +1,2 @@
+vhdtdtfi -lang verilog -prj DES -o C:/xilinxProjects/DES/generateSubkeys.tfi -lib work C:/xilinxProjects/DES//generateSubkeys.v -module generateSubkeys -template d:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj DES -o C:/xilinxProjects/DES/generateSubkeys.tfi -lib work C:/xilinxProjects/DES//generateSubkeys.v -module generateSubkeys -template d:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 
