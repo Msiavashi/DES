@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Parameter xsthdpdir set to C:/xilinxProjects/DES/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> Reading design: encryption.prj
 
@@ -43,18 +43,16 @@ Analyzing Verilog file "C:\xilinxProjects\DES\generateSubkeys.v" into library wo
 Parsing module <generateSubkeys>.
 Analyzing Verilog file "C:\xilinxProjects\DES\encryption.v" into library work
 Parsing module <encryption>.
-ERROR:HDLCompiler:82 - "C:\xilinxProjects\DES\encryption.v" Line 737: S needs 2 dimensions
-ERROR:HDLCompiler:251 - "C:\xilinxProjects\DES\encryption.v" Line 737: Cannot access memory s1 directly
-ERROR:HDLCompiler:524 - "C:\xilinxProjects\DES\encryption.v" Line 737: Incompatible unpacked dimensions in assignment
-ERROR:HDLCompiler:82 - "C:\xilinxProjects\DES\encryption.v" Line 761: b needs 2 dimensions
-ERROR:HDLCompiler:971 - "C:\xilinxProjects\DES\encryption.v" Line 761: Illegal operand for operator *
-ERROR:HDLCompiler:598 - "C:\xilinxProjects\DES\encryption.v" Line 21: Module <encryption> ignored due to previous errors.
-Verilog file C:\xilinxProjects\DES\encryption.v ignored due to errors
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.57 secs
+ 
 --> 
 
 Total memory usage is 185392 kilobytes
 
-Number of errors   :    6 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

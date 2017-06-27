@@ -5,10 +5,17 @@ Turning on mult-threading, number of parallel sub-compilation jobs: 8
 Determining compilation order of HDL files
 Analyzing Verilog file "C:/xilinxProjects/DES/generateSubkeys.v" into library work
 Analyzing Verilog file "C:/xilinxProjects/DES/encryption.v" into library work
-ERROR:HDLCompiler:82 - "C:/xilinxProjects/DES/encryption.v" Line 737: S needs 2 dimensions
-ERROR:HDLCompiler:251 - "C:/xilinxProjects/DES/encryption.v" Line 737: Cannot access memory s1 directly
-ERROR:HDLCompiler:524 - "C:/xilinxProjects/DES/encryption.v" Line 737: Incompatible unpacked dimensions in assignment
-ERROR:HDLCompiler:82 - "C:/xilinxProjects/DES/encryption.v" Line 761: b needs 2 dimensions
-ERROR:HDLCompiler:971 - "C:/xilinxProjects/DES/encryption.v" Line 761: Illegal operand for operator *
-ERROR:HDLCompiler:598 - "C:/xilinxProjects/DES/encryption.v" Line 21: Module <encryption> ignored due to previous errors.
-Verilog file C:/xilinxProjects/DES/encryption.v ignored due to errors
+Analyzing Verilog file "C:/xilinxProjects/DES/rnctest.v" into library work
+Analyzing Verilog file "d:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module generateSubkeys
+Compiling module encryption
+Compiling module rnctest
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: The system cannot find the path specified, "isim\rnctest_isim_beh.exe.sim\libPortability.dll".
+Compiled 4 Verilog Units
+Built simulation executable C:/xilinxProjects/DES/rnctest_isim_beh.exe
+Fuse Memory Usage: 31516 KB
+Fuse CPU Usage: 718 ms

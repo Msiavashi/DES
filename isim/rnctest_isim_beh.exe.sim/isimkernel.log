@@ -2,27 +2,9 @@ Command line:
    rnctest_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  41642
+     -socket  44326
 
-Tue Jun 27 01:18:29 2017
+Tue Jun 27 15:51:06 2017
 
 
- Elaboration Time: 0.21875 sec
-
- Current Memory Usage: 1019.83 Meg
-
- Total Signals          : 52
- Total Nets             : 1742
- Total Signal Drivers   : 40
- Total Blocks           : 4
- Total Primitive Blocks : 2
- Total Processes        : 58
- Total Traceable Variables  : 58
- Total Scalar Nets and Variables : 14843
-
- Total Simulation Time: 0.25 sec
-
- Current Memory Usage: 390.615 Meg
-
-Tue Jun 27 01:25:32 2017
-
+ Elaboration Time: 0.234375 sec

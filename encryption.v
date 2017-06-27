@@ -29,17 +29,18 @@ module encryption(
 	reg [7:0] permInitial [63:0];
 	reg [7:0] permFinal [63:0];
 	reg [7:0] permExpansion [0:47];
-	reg [7:0] s1 [3:0][15:0];
-	reg [7:0] s2 [3:0][15:0];
-	reg [7:0] s3 [3:0][15:0];
-	reg [7:0] s4 [3:0][15:0];
-	reg [7:0] s5 [3:0][15:0];
-	reg [7:0] s6 [3:0][15:0];
-	reg [7:0] s7 [3:0][15:0];
-	reg [7:0] s8 [3:0][15:0];
+	reg [7:0] permP [0:31];
+	reg [0:3] s1 [0:3][0:15];
+	reg [0:3] s2 [0:3][0:15];
+	reg [0:3] s3 [0:3][0:15];
+	reg [0:3] s4 [0:3][0:15];
+	reg [0:3] s5 [0:3][0:15];
+	reg [0:3] s6 [0:3][0:15];
+	reg [0:3] s7 [0:3][0:15];
+	reg [0:3] s8 [0:3][0:15];
 	
 	initial begin
-		
+		$readmemh("permP.data", permP);
 		$readmemh("permInitial.data", permInitial);
 		$readmemh("permExpansion.data", permExpansion);
 		$readmemh("permFinal.data", permFinal);
@@ -710,7 +711,7 @@ module encryption(
 	reg [0:31] R [16:0];
 	reg [0:47] e [15:0];
 	
-	integer h, j, k, f;
+	integer h, j, k, f, l, m;
 	reg [0:47] xor_e [15:0];
 	wire [0:47] keys_array [0:15];
 	
@@ -732,9 +733,11 @@ module encryption(
 	assign keys_array[15] = sub_key16;
 
 	reg [0:5] b [0:15][0:7];
-	wire [7:0] S [3:0][15:0];
+	reg [0:31] after_s_box [0:15];
 	
-	assign S[0] = s1;
+	reg [0:1] i_dim;
+	reg [0:3] j_dim;
+	reg [0:31] x [0:15];
 	always @(*) begin
 		L[0] = permuted_plain[0:31];
 		R[0] = permuted_plain[32:63];
@@ -758,12 +761,37 @@ module encryption(
 				m = b[h][0]*2 + b[h][5];
 				n = b[h][1]*8 + b[2]*4 + b[h][3] * 2 + b[h][4];
 				*/
-				b[h][f] = s1[b[h][0]*2 + b[h][5]][b[h][1]*8 + b[2]*4 + b[h][3] * 2 + b[h][4]];
+				
 			end
+			/*
+			{b[h][6], b[h][1]}
+			b[h][1:5]*/
+			after_s_box[h] = {
+			s1[{b[h][0][0], b[h][0][5]}][b[h][0][1:4]],
+			s2[{b[h][1][0], b[h][1][5]}][b[h][1][1:4]],
+			s3[{b[h][2][0], b[h][2][5]}][b[h][2][1:4]],
+			s4[{b[h][3][0], b[h][3][5]}][b[h][3][1:4]],
+			s5[{b[h][4][0], b[h][4][5]}][b[h][4][1:4]],
+			s6[{b[h][5][0], b[h][5][5]}][b[h][5][1:4]],
+			s7[{b[h][6][0], b[h][6][5]}][b[h][6][1:4]],
+			s8[{b[h][7][0], b[h][7][5]}][b[h][7][1:4]]
+			};
 			
+			for (l = 0; l < 32; l = l + 1)begin
+				x[h][l] = after_s_box[h][permP[l] - 1'h1];
+			end
+			for (m = 0; m < 32; m = m + 1)begin
+				R[h+1][m] = x[h][m] ^ L[h][m];
+			end 
+			L[h+1] = R[h];
+					
 			
+
 		end
-	
+		
+		
 	end
+	
+	
 	
 endmodule
