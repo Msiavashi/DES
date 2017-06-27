@@ -152,20 +152,15 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1498510055" xil_pn:in_ck="-9058753230293451196" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-4946375295126197697" xil_pn:start_ts="1498510042">
-      <status xil_pn:value="SuccessfullyRun"/>
+    <transform xil_pn:end_ts="1498563686" xil_pn:in_ck="-9058753230293451196" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-4946375295126197697" xil_pn:start_ts="1498563677">
+      <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="encryption.lso"/>
       <outfile xil_pn:name="encryption.ngc"/>
       <outfile xil_pn:name="encryption.ngr"/>
       <outfile xil_pn:name="encryption.prj"/>
-      <outfile xil_pn:name="encryption.stx"/>
       <outfile xil_pn:name="encryption.syr"/>
       <outfile xil_pn:name="encryption.xst"/>
       <outfile xil_pn:name="encryption_xst.xrpt"/>

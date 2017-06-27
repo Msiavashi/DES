@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to C:/xilinxProjects/DES/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: generateSubkeys.prj
 
@@ -44,7 +44,7 @@ Parsing module <generateSubkeys>.
 
 
 Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.29 secs
+Total CPU time to Xst completion: 5.53 secs
  
 --> 
 

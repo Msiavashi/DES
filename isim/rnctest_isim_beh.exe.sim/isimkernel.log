@@ -2,9 +2,9 @@ Command line:
    rnctest_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  44326
+     -socket  44403
 
-Tue Jun 27 15:51:06 2017
+Tue Jun 27 16:26:37 2017
 
 
- Elaboration Time: 0.234375 sec
+ Elaboration Time: 0.25 sec

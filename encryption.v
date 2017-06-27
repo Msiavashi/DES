@@ -22,12 +22,12 @@ module encryption(
 		input clk,
 		input [0:63] plainText,
 		input [63:0] key,
-		output [63:0] encrypted
+		output reg [63:0] encrypted
     );
 	
 	
 	reg [7:0] permInitial [63:0];
-	reg [7:0] permFinal [63:0];
+	reg [7:0] permFinal [0:63];
 	reg [7:0] permExpansion [0:47];
 	reg [7:0] permP [0:31];
 	reg [0:3] s1 [0:3][0:15];
@@ -711,7 +711,7 @@ module encryption(
 	reg [0:31] R [16:0];
 	reg [0:47] e [15:0];
 	
-	integer h, j, k, f, l, m;
+	integer h, j, k, f, l, m, n;
 	reg [0:47] xor_e [15:0];
 	wire [0:47] keys_array [0:15];
 	
@@ -734,7 +734,7 @@ module encryption(
 
 	reg [0:5] b [0:15][0:7];
 	reg [0:31] after_s_box [0:15];
-	
+	reg [63:0] enc_tmp;
 	reg [0:1] i_dim;
 	reg [0:3] j_dim;
 	reg [0:31] x [0:15];
@@ -755,17 +755,10 @@ module encryption(
 			for( f = 0; f < 8; f = f + 1 ) begin
 				//divide xor
 				{b[h][0],b[h][1],b[h][2],b[h][3],b[h][4],b[h][5],b[h][6],b[h][7]} = {xor_e[h][0:5], xor_e[h][6:11], xor_e[h][12:17], xor_e[h][18:23], xor_e[h][24:29], xor_e[h][30:35], xor_e[h][36:41],xor_e[h][42:47]};
-				
-				//sboxes
-				/*
-				m = b[h][0]*2 + b[h][5];
-				n = b[h][1]*8 + b[2]*4 + b[h][3] * 2 + b[h][4];
-				*/
+
 				
 			end
-			/*
-			{b[h][6], b[h][1]}
-			b[h][1:5]*/
+			//sbox
 			after_s_box[h] = {
 			s1[{b[h][0][0], b[h][0][5]}][b[h][0][1:4]],
 			s2[{b[h][1][0], b[h][1][5]}][b[h][1][1:4]],
@@ -784,14 +777,17 @@ module encryption(
 				R[h+1][m] = x[h][m] ^ L[h][m];
 			end 
 			L[h+1] = R[h];
-					
-			
-
+		end
+		
+		enc_tmp = {R[16], L[16]};
+		$display("%b", enc_tmp);
+		for (n = 0; n < 64; n = n+1)begin
+			encrypted[n] = enc_tmp[permFinal[n] - 1]; 
 		end
 		
 		
 	end
 	
-	
+
 	
 endmodule

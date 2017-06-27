@@ -5,5 +5,32 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 42: Using initial value of <arg fmt="%s" index="1">permP</arg> since it is never assigned
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="872" delta="new" >"C:\xilinxProjects\DES\generateSubkeys.v" Line 44: Using initial value of <arg fmt="%s" index="1">perm1</arg> since it is never assigned
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"C:\xilinxProjects\DES\generateSubkeys.v" Line 95: Result of <arg fmt="%d" index="1">12</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">11</arg>-bit target.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="1401" delta="new" >"C:\xilinxProjects\DES\generateSubkeys.v" Line 66: Signal <arg fmt="%s" index="1">flag</arg> in unit <arg fmt="%s" index="2">generateSubkeys</arg> is connected to following multiple drivers:
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1499" delta="new" >"C:\xilinxProjects\DES\generateSubkeys.v" Line 21: Empty module &lt;<arg fmt="%s" index="1">generateSubkeys</arg>&gt; remains a black box.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 783: Result of <arg fmt="%d" index="1">39</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="894" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 783: Zero or negative value for size
+</msg>
+
+<msg type="error" file="HDLCompiler" num="532" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 783: Index &lt;<arg fmt="%d" index="1">-1</arg>&gt; is out of range [<arg fmt="%d" index="2">63</arg>:<arg fmt="%d" index="3">0</arg>] for signal &lt;<arg fmt="%s" index="4">select on concatenation</arg>&gt;.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1499" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 21: Empty module &lt;<arg fmt="%s" index="1">encryption</arg>&gt; remains a black box.
+</msg>
+
 </messages>
 
