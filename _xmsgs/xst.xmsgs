@@ -5,5 +5,23 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="error" file="HDLCompiler" num="82" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 737: <arg fmt="%s" index="1">S</arg> needs <arg fmt="%d" index="2">2</arg> dimensions
+</msg>
+
+<msg type="error" file="HDLCompiler" num="251" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 737: Cannot access memory <arg fmt="%s" index="1">s1</arg> directly
+</msg>
+
+<msg type="error" file="HDLCompiler" num="524" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 737: Incompatible unpacked dimensions in assignment
+</msg>
+
+<msg type="error" file="HDLCompiler" num="82" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 761: <arg fmt="%s" index="1">b</arg> needs <arg fmt="%d" index="2">2</arg> dimensions
+</msg>
+
+<msg type="error" file="HDLCompiler" num="971" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 761: Illegal operand for operator <arg fmt="%s" index="1">*</arg>
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="new" >"C:\xilinxProjects\DES\encryption.v" Line 21: Module &lt;<arg fmt="%s" index="1">encryption</arg>&gt; ignored due to previous errors.
+</msg>
+
 </messages>
 

@@ -1,1 +1,2 @@
+verilog work "generateSubkeys.v"
 verilog work "encryption.v"

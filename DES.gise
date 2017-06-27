@@ -32,6 +32,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="encryption.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="encryption.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="encryption_envsettings.html"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="encryption_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="encryption_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="encryption_xst.xrpt"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
@@ -46,9 +47,11 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="permute.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="permute.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="permute.xst"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="test_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="rnctest_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="rnctest_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="rnctest_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="rnctest_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="test_isim_beh.exe"/>
-    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="test_isim_beh.wdb"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
@@ -59,7 +62,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1498048366" xil_pn:in_ck="504462438632618120" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1498048366">
+    <transform xil_pn:end_ts="1498441247" xil_pn:in_ck="2723470369394913103" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1498441247">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
@@ -68,13 +71,14 @@
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="encryption.v"/>
       <outfile xil_pn:name="generateSubkeys.v"/>
+      <outfile xil_pn:name="rnctest.v"/>
       <outfile xil_pn:name="test.v"/>
     </transform>
-    <transform xil_pn:end_ts="1495355980" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-4846834790194202313" xil_pn:start_ts="1495355980">
+    <transform xil_pn:end_ts="1498441537" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="6077090443261796730" xil_pn:start_ts="1498441537">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1495355980" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-6098524771441189131" xil_pn:start_ts="1495355980">
+    <transform xil_pn:end_ts="1498441537" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="444303817588878648" xil_pn:start_ts="1498441537">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -82,7 +86,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1498048367" xil_pn:in_ck="504462438632618120" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1498048366">
+    <transform xil_pn:end_ts="1498441247" xil_pn:in_ck="2723470369394913103" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1498441247">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
@@ -92,9 +96,10 @@
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="encryption.v"/>
       <outfile xil_pn:name="generateSubkeys.v"/>
+      <outfile xil_pn:name="rnctest.v"/>
       <outfile xil_pn:name="test.v"/>
     </transform>
-    <transform xil_pn:end_ts="1498048370" xil_pn:in_ck="504462438632618120" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5721210994899144723" xil_pn:start_ts="1498048367">
+    <transform xil_pn:end_ts="1498441542" xil_pn:in_ck="2723470369394913103" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-7668810252509270925" xil_pn:start_ts="1498441537">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
@@ -105,11 +110,11 @@
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="test_beh.prj"/>
-      <outfile xil_pn:name="test_isim_beh.exe"/>
+      <outfile xil_pn:name="rnctest_beh.prj"/>
+      <outfile xil_pn:name="rnctest_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1498048370" xil_pn:in_ck="1292907025299716079" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-4981452381234523536" xil_pn:start_ts="1498048370">
+    <transform xil_pn:end_ts="1498441542" xil_pn:in_ck="-1150148158318348933" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="6111268255671333494" xil_pn:start_ts="1498441542">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
@@ -117,7 +122,7 @@
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="test_isim_beh.wdb"/>
+      <outfile xil_pn:name="rnctest_isim_beh.wdb"/>
     </transform>
     <transform xil_pn:end_ts="1493975532" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1493975532">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -147,17 +152,25 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1493997525" xil_pn:in_ck="5277986819948121199" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-4946375295126197697" xil_pn:start_ts="1493997515">
+    <transform xil_pn:end_ts="1498510055" xil_pn:in_ck="-9058753230293451196" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-4946375295126197697" xil_pn:start_ts="1498510042">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="encryption.lso"/>
+      <outfile xil_pn:name="encryption.ngc"/>
+      <outfile xil_pn:name="encryption.ngr"/>
+      <outfile xil_pn:name="encryption.prj"/>
+      <outfile xil_pn:name="encryption.stx"/>
+      <outfile xil_pn:name="encryption.syr"/>
+      <outfile xil_pn:name="encryption.xst"/>
+      <outfile xil_pn:name="encryption_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
     </transform>
   </transforms>
 

@@ -76,9 +76,7 @@ module test;
 		#100 key = 64'b0000110000001100000011000000110000001100000011000000110000001100;
         
 		// Add stimulus here
-		
-		$display("%b\n", sub_key1);
-		$display("%b\n", sub_key2);
+	
 	end
       always begin
 			#50;

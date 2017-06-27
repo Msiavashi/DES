@@ -1,9 +1,6 @@
-set -tmpdir "xst/projnav.tmp"
-set -xsthdpdir "xst"
-run
--ifn encryption.prj
--ofn encryption
--ofmt NGC
+set -tmpdir "C:/xilinxProjects/DES/xst/projnav.tmp"
+set -xsthdpdir "C:/xilinxProjects/DES/xst"
+run -compileonly yes
 -p xc6slx9-3-tqg144
 -top encryption
 -opt_mode Speed
@@ -50,3 +47,4 @@ run
 -iob Auto
 -equivalent_register_removal YES
 -slice_utilization_ratio_maxmargin 5
+-ifn encryption.prj

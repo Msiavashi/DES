@@ -35,8 +35,7 @@ module generateSubkeys(
 	output [47:0] sub_key13,
 	output [47:0] sub_key14,
 	output [47:0] sub_key15,
-	output [47:0] sub_key16,
-	input clk
+	output [47:0] sub_key16
     );
 	 
 	reg [0:55] permuted_key;
@@ -93,7 +92,6 @@ module generateSubkeys(
 				key_tmp[k] = tmp[perm2[k] - 1'h1];
 			end
 			Keys[counter] = key_tmp;
-			$display("%b", Keys[counter]);
 			counter <= counter + 1;
 			if ( counter == 16 ) flag <= 0;
 		end

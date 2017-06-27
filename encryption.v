@@ -16,11 +16,11 @@
 // Revision: 
 // Revision 0.01 - File Created
 // Additional Comments: 
-//
+//	
 //////////////////////////////////////////////////////////////////////////////////
 module encryption(
 		input clk,
-		input [63:0] plainText,
+		input [0:63] plainText,
 		input [63:0] key,
 		output [63:0] encrypted
     );
@@ -28,7 +28,7 @@ module encryption(
 	
 	reg [7:0] permInitial [63:0];
 	reg [7:0] permFinal [63:0];
-	reg [7:0] permExpansion [47:0];
+	reg [7:0] permExpansion [0:47];
 	reg [7:0] s1 [3:0][15:0];
 	reg [7:0] s2 [3:0][15:0];
 	reg [7:0] s3 [3:0][15:0];
@@ -39,8 +39,7 @@ module encryption(
 	reg [7:0] s8 [3:0][15:0];
 	
 	initial begin
-		$readmemh("perm1.data", perm1);
-		$readmemh("perm2.data", perm2);
+		
 		$readmemh("permInitial.data", permInitial);
 		$readmemh("permExpansion.data", permExpansion);
 		$readmemh("permFinal.data", permFinal);
@@ -522,6 +521,74 @@ module encryption(
 		s7[3][15]=12;
 	end
 	
+	initial begin
+		s8[0][0]=13;
+		s8[0][1]=2;
+		s8[0][2]=8;
+		s8[0][3]=4;
+		s8[0][4]=6;
+		s8[0][5]=15;
+		s8[0][6]=11;
+		s8[0][7]=1;
+		s8[0][8]=10;
+		s8[0][9]=9;
+		s8[0][10]=3;
+		s8[0][11]=14;
+		s8[0][12]=5;
+		s8[0][13]=0;
+		s8[0][14]=12;
+		s8[0][15]=7;
+		s8[1][0]=1;
+		s8[1][1]=15;
+		s8[1][2]=13;
+		s8[1][3]=8;
+		s8[1][4]=10;
+		s8[1][5]=3;
+		s8[1][6]=7;
+		s8[1][7]=4;
+		s8[1][8]=12;
+		s8[1][9]=5;
+		s8[1][10]=6;
+		s8[1][11]=11;
+		s8[1][12]=0;
+		s8[1][13]=14;
+		s8[1][14]=9;
+		s8[1][15]=2;
+		s8[2][0]=7;
+		s8[2][1]=11;
+		s8[2][2]=4;
+		s8[2][3]=1;
+		s8[2][4]=9;
+		s8[2][5]=12;
+		s8[2][6]=14;
+		s8[2][7]=2;
+		s8[2][8]=0;
+		s8[2][9]=6;
+		s8[2][10]=10;
+		s8[2][11]=13;
+		s8[2][12]=15;
+		s8[2][13]=3;
+		s8[2][14]=5;
+		s8[2][15]=8;
+		s8[3][0]=2;
+		s8[3][1]=1;
+		s8[3][2]=14;
+		s8[3][3]=7;
+		s8[3][4]=4;
+		s8[3][5]=10;
+		s8[3][6]=8;
+		s8[3][7]=13;
+		s8[3][8]=15;
+		s8[3][9]=12;
+		s8[3][10]=9;
+		s8[3][11]=0;
+		s8[3][12]=3;
+		s8[3][13]=5;
+		s8[3][14]=6;
+		s8[3][15]=11;
+	end
+
+	
 	//s8
 	initial begin
 		s7[0][0]=4;
@@ -591,6 +658,112 @@ module encryption(
 	end
 	
 	
+	wire [47:0] sub_key1;
+	wire [47:0] sub_key2;
+	wire [47:0] sub_key3;
+	wire [47:0] sub_key4;
+	wire [47:0] sub_key5;
+	wire [47:0] sub_key6;
+	wire [47:0] sub_key7;
+	wire [47:0] sub_key8;
+	wire [47:0] sub_key9;
+	wire [47:0] sub_key10;
+	wire [47:0] sub_key11;
+	wire [47:0] sub_key12;
+	wire [47:0] sub_key13;
+	wire [47:0] sub_key14;
+	wire [47:0] sub_key15;
+	wire [47:0] sub_key16;
 	
+	generateSubkeys subKeyGenerator (
+    .key(key), 
+    .sub_key1(sub_key1), 
+    .sub_key2(sub_key2), 
+    .sub_key3(sub_key3), 
+    .sub_key4(sub_key4), 
+    .sub_key5(sub_key5), 
+    .sub_key6(sub_key6), 
+    .sub_key7(sub_key7), 
+    .sub_key8(sub_key8), 
+    .sub_key9(sub_key9), 
+    .sub_key10(sub_key10), 
+    .sub_key11(sub_key11), 
+    .sub_key12(sub_key12), 
+    .sub_key13(sub_key13), 
+    .sub_key14(sub_key14), 
+    .sub_key15(sub_key15), 
+    .sub_key16(sub_key16)
+    );
+	
+	//initial permutation of plaintex
+	reg [0:63] permuted_plain;
+	integer i;
+	
+	always @(*) begin
+	
+		for (i = 0; i < 64; i = i + 1) begin
+			permuted_plain[i] = plainText[permInitial[i] - 1'h1];
+		end
+	end
+	
+	reg [0:31] L [16:0];
+	reg [0:31] R [16:0];
+	reg [0:47] e [15:0];
+	
+	integer h, j, k, f;
+	reg [0:47] xor_e [15:0];
+	wire [0:47] keys_array [0:15];
+	
+	assign keys_array[0] = sub_key1;
+	assign keys_array[1] = sub_key2;
+	assign keys_array[2] = sub_key3;
+	assign keys_array[3] = sub_key4;
+	assign keys_array[4] = sub_key5;
+	assign keys_array[5] = sub_key6;
+	assign keys_array[6] = sub_key7;
+	assign keys_array[7] = sub_key8;
+	assign keys_array[8] = sub_key9;
+	assign keys_array[9] = sub_key10;
+	assign keys_array[10] = sub_key11;
+	assign keys_array[11] = sub_key12;
+	assign keys_array[12] = sub_key13;
+	assign keys_array[13] = sub_key14;
+	assign keys_array[14] = sub_key15;
+	assign keys_array[15] = sub_key16;
+
+	reg [0:5] b [0:15][0:7];
+	wire [7:0] S [3:0][15:0];
+	
+	assign S[0] = s1;
+	always @(*) begin
+		L[0] = permuted_plain[0:31];
+		R[0] = permuted_plain[32:63];
+		for (h = 0; h < 16; h = h + 1)begin
+		//key expansion
+			for (j = 0; j < 48; j = j + 1)begin
+				e[h][j] = R[h][permExpansion[j] - 1'h1];
+			end
+	
+		//xors
+			for (k = 0; k < 48; k = k + 1)begin
+				xor_e[h][k] = keys_array[h][k] ^ e[h][k];
+			end
+		
+			for( f = 0; f < 8; f = f + 1 ) begin
+				//divide xor
+				{b[h][0],b[h][1],b[h][2],b[h][3],b[h][4],b[h][5],b[h][6],b[h][7]} = {xor_e[h][0:5], xor_e[h][6:11], xor_e[h][12:17], xor_e[h][18:23], xor_e[h][24:29], xor_e[h][30:35], xor_e[h][36:41],xor_e[h][42:47]};
+				
+				//sboxes
+				/*
+				m = b[h][0]*2 + b[h][5];
+				n = b[h][1]*8 + b[2]*4 + b[h][3] * 2 + b[h][4];
+				*/
+				b[h][f] = s1[b[h][0]*2 + b[h][5]][b[h][1]*8 + b[2]*4 + b[h][3] * 2 + b[h][4]];
+			end
+			
+			
+		end
+	
+	end
 	
 endmodule

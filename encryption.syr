@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: encryption.prj
 
@@ -105,6 +105,8 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Analyzing Verilog file "C:\xilinxProjects\DES\generateSubkeys.v" into library work
+Parsing module <generateSubkeys>.
 Analyzing Verilog file "C:\xilinxProjects\DES\encryption.v" into library work
 Parsing module <encryption>.
 
@@ -113,12 +115,18 @@ Parsing module <encryption>.
 =========================================================================
 
 Elaborating module <encryption>.
-Reading initialization file \"perm1.data\".
-Reading initialization file \"perm2.data\".
 Reading initialization file \"permInitial.data\".
 Reading initialization file \"permExpansion.data\".
 Reading initialization file \"permFinal.data\".
-WARNING:HDLCompiler:1499 - "C:\xilinxProjects\DES\encryption.v" Line 21: Empty module <encryption> remains a black box.
+WARNING:HDLCompiler:872 - "C:\xilinxProjects\DES\encryption.v" Line 41: Using initial value of permInitial since it is never assigned
+
+Elaborating module <generateSubkeys>.
+Reading initialization file \"perm1.data\".
+Reading initialization file \"perm2.data\".
+WARNING:HDLCompiler:872 - "C:\xilinxProjects\DES\generateSubkeys.v" Line 44: Using initial value of perm1 since it is never assigned
+WARNING:HDLCompiler:413 - "C:\xilinxProjects\DES\generateSubkeys.v" Line 75: Result of 12-bit expression is truncated to fit in 11-bit target.
+WARNING:HDLCompiler:1127 - "C:\xilinxProjects\DES\encryption.v" Line 667: Assignment to L ignored, since the identifier is never used
+WARNING:Xst:2972 - "C:\xilinxProjects\DES\encryption.v" line 610. All outputs of instance <subKeyGenerator> of block <generateSubkeys> are unconnected in block <encryption>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -127,8 +135,23 @@ WARNING:HDLCompiler:1499 - "C:\xilinxProjects\DES\encryption.v" Line 21: Empty m
 Synthesizing Unit <encryption>.
     Related source file is "C:\xilinxProjects\DES\encryption.v".
 WARNING:Xst:647 - Input <plainText> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <key> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key1> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key2> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key3> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key4> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key5> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key6> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key7> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key8> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key9> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key10> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key11> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key12> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key13> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key14> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key15> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\xilinxProjects\DES\encryption.v" line 610: Output port <sub_key16> of the instance <subKeyGenerator> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <encryption> synthesized.
@@ -254,14 +277,14 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.91 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.95 secs
  
 --> 
 
-Total memory usage is 224276 kilobytes
+Total memory usage is 240904 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    4 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :   16 (   0 filtered)
 
