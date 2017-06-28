@@ -1,4 +1,5 @@
 verilog work "generateSubkeys.v"
 verilog work "encryption.v"
-verilog work "rnctest.v"
+verilog work "top.v"
+verilog work "test_top.v"
 verilog work "d:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module generateSubkeys(
-	input [63:0] key,
+	input [0:63] key,
 	output [47:0] sub_key1,
 	output [47:0] sub_key2,
 	output [47:0] sub_key3,
@@ -62,7 +62,7 @@ module generateSubkeys(
 	
 	//rotations
 	integer j, k;
-	reg flag = 0;
+	reg flag = 1;
 	always @(*) begin
 		C[0] = permuted_key[0:27];
 		D[0] = permuted_key[28:55];
@@ -77,23 +77,22 @@ module generateSubkeys(
 			end
 			subkey = {C[j], D[j]};
 			K[j - 1] = subkey;
-			if (j == 16) begin
-				flag <= 1;
-			end
+			
 		end
 	end
 	
 	reg [10:0] counter = 0;
 	reg [0:55] tmp;
+	integer h;
+	//second perm and assignments
 	always @(*) begin
-		if (flag)begin
-			tmp[0:55] = K[counter][55:0];
+		for(h = 0; h < 16; h = h + 1)begin
+			tmp[0:55] = K[h][55:0];
 			for (k = 0; k < 48; k = k + 1) begin
 				key_tmp[k] = tmp[perm2[k] - 1'h1];
 			end
-			Keys[counter] = key_tmp;
-			counter <= counter + 1;
-			if ( counter == 16 ) flag <= 0;
+			Keys[h] = key_tmp;
+			
 		end
 	end
 	

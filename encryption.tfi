@@ -1,0 +1,12 @@
+
+
+
+// Instantiate the module
+encryption instance_name (
+    .clk(clk), 
+    .plainText(plainText), 
+    .key(key), 
+    .encrypted(encrypted)
+    );
+
+

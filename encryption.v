@@ -19,9 +19,8 @@
 //	
 //////////////////////////////////////////////////////////////////////////////////
 module encryption(
-		input clk,
 		input [0:63] plainText,
-		input [63:0] key,
+		input [0:63] key,
 		output reg [63:0] encrypted
     );
 	
@@ -780,7 +779,6 @@ module encryption(
 		end
 		
 		enc_tmp = {R[16], L[16]};
-		$display("%b", enc_tmp);
 		for (n = 0; n < 64; n = n+1)begin
 			encrypted[n] = enc_tmp[permFinal[n] - 1]; 
 		end

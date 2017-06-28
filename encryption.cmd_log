@@ -15,3 +15,4 @@ xst -intstyle ise -ifn "C:/xilinxProjects/DES/encryption.xst" -ofn "C:/xilinxPro
 xst -intstyle ise -ifn "C:/xilinxProjects/DES/encryption.xst" -ofn "C:/xilinxProjects/DES/encryption.syr" 
 xst -intstyle ise -ifn "C:/xilinxProjects/DES/encryption.xst" -ofn "C:/xilinxProjects/DES/encryption.syr" 
 xst -intstyle ise -ifn "C:/xilinxProjects/DES/encryption.xst" -ofn "C:/xilinxProjects/DES/encryption.syr" 
+vhdtdtfi -lang verilog -prj DES -o C:/xilinxProjects/DES/encryption.tfi -lib work C:/xilinxProjects/DES//encryption.v -module encryption -template d:/Xilinx/14.7/ISE_DS/ISE//data/tfi.tft -deleteonerror 

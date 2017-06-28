@@ -1,21 +1,24 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/xilinxProjects/DES/rnctest_isim_beh.exe" -prj "C:/xilinxProjects/DES/rnctest_beh.prj" "work.rnctest" "work.glbl" 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/xilinxProjects/DES/test_top_isim_beh.exe" -prj "C:/xilinxProjects/DES/test_top_beh.prj" "work.test_top" "work.glbl" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
 Analyzing Verilog file "C:/xilinxProjects/DES/generateSubkeys.v" into library work
 Analyzing Verilog file "C:/xilinxProjects/DES/encryption.v" into library work
-Analyzing Verilog file "C:/xilinxProjects/DES/rnctest.v" into library work
+Analyzing Verilog file "C:/xilinxProjects/DES/top.v" into library work
+Analyzing Verilog file "C:/xilinxProjects/DES/test_top.v" into library work
 Analyzing Verilog file "d:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling module generateSubkeys
 Compiling module encryption
-Compiling module rnctest
+Compiling module top
+Compiling module test_top
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: The system cannot find the path specified, "isim\rnctest_isim_beh.exe.sim\libPortability.dll".
-Compiled 4 Verilog Units
-Built simulation executable C:/xilinxProjects/DES/rnctest_isim_beh.exe
-Fuse Memory Usage: 31956 KB
-Fuse CPU Usage: 749 ms
+Waiting for 1 sub-compilation(s) to finish...
+WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: The system cannot find the path specified, "isim\test_top_isim_beh.exe.sim\libPortability.dll".
+Compiled 5 Verilog Units
+Built simulation executable C:/xilinxProjects/DES/test_top_isim_beh.exe
+Fuse Memory Usage: 31992 KB
+Fuse CPU Usage: 796 ms
